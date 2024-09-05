@@ -144,6 +144,8 @@ alias psyu="sudo pacman -Syyu"
 alias ls=exa
 alias la='ll -a'
 
+alias cat='bat --paging=never'
+
 alias vim='nvim'
 
 eval # This file is part of the Symfony package.
