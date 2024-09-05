@@ -94,6 +94,7 @@ plugins=(
     rails
     rake
     gem
+    ssh-agent
 )
 
 source $ZSH/oh-my-zsh.sh
