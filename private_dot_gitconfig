@@ -1,0 +1,10 @@
+[user]
+	email = anthony@helladan.io
+	name = loriel
+	signingkey = /home/loriel/.ssh/id_rsa.pub
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[push]
+	autoSetupRemote = true
