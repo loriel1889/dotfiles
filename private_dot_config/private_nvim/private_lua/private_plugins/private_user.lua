@@ -77,6 +77,7 @@ return {
       )
     end,
   },
+  { "imsnif/kdl.vim", lazy = false },
   { "mg979/vim-visual-multi", lazy = false },
   { "ryanoasis/vim-devicons", lazy = false },
   { "nanotee/sqls.nvim", lazy = false },
