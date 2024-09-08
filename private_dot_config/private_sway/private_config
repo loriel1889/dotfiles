@@ -15,6 +15,7 @@ set $term kitty
 # on the original workspace that the command was run on.
 # set $menuDrun wofi --show drun -G -I | xargs swaymsg exec 
 set $menuRun wofi --show run -G -I | xargs swaymsg exec 
+set $menuRun dmenu_path | fzf | xargs swaymsg exec
 set $menuDrun 'rofi -combi-modi window,drun,ssh -theme solarized -font "hack 10" -show combi'
 
 set $browser firefox
