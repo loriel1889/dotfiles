@@ -17,7 +17,7 @@ set $menuDrun wofi --show drun -G -I | xargs swaymsg exec
 set $menuRun wofi --show run -G -I | xargs swaymsg exec 
 
 set $browser firefox
-set $explorer dolphin 
+set $explorer thunar
 
 set $swaylockCmd swaylock \
 					--daemonize \
