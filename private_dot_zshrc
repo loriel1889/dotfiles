@@ -263,7 +263,5 @@ export GPG_TTY
 [[ ! -f ~/nextcloud/loriel/dotfile/.p10k.zsh ]] || source ~/nextcloud/loriel/dotfile/.p10k.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export GITHUB_AUTH_TOKEN=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
-
 eval "$(navi widget zsh)"
 eval "$(register-python-argcomplete pipx)"
