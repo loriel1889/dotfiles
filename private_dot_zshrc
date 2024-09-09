@@ -95,6 +95,7 @@ plugins=(
     rake
     gem
     ssh-agent
+    docker
 )
 
 source $ZSH/oh-my-zsh.sh
