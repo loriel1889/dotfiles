@@ -8,7 +8,8 @@
 
 configuration {
 	/*---------- General setting ----------*/
-	modi: "drun,run,filebrowser,window";
+	modi: "drun,run,,ssh,combi,window";
+	modes: "combi";
 	case-sensitive: false;
 	cycle: true;
 	filter: "";
@@ -62,9 +63,9 @@ configuration {
 	window-thumbnail: false;
 
 	/*---------- Combi settings ----------*/
-/*	combi-modi: "window,run";*/
-/*	combi-hide-mode-prefix: false;*/
-/*	combi-display-format: "{mode} {text}";*/
+	combi-modi: "drun,ssh,window";
+	combi-hide-mode-prefix: false;
+	combi-display-format: "{mode} {text}";
 
 	/*---------- History and Sorting ----------*/
 	disable-history: false;
@@ -82,7 +83,7 @@ configuration {
 	display-filebrowser: "Files";
 
 	/*---------- Misc setting ----------*/
-	terminal: "rofi-sensible-terminal";
+	terminal: "kitty";
 	font: "Mono 12";
 	sort: false;
 	threads: 0;
@@ -179,3 +180,5 @@ configuration {
 	me-accept-custom: "Control+MouseDPrimary";
 */
 }
+
+@theme "/usr/share/rofi/themes/Arc-Dark.rasi"

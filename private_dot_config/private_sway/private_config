@@ -15,7 +15,7 @@ set $term kitty
 # on the original workspace that the command was run on.
 # set $menuDrun wofi --show drun -G -I | xargs swaymsg exec 
 set $menuRun wofi --show run -G -I | xargs swaymsg exec 
-set $menuDrun 'rofi -combi-modi window,drun,ssh -theme solarized -font "hack 10" -show combi'
+set $menuDrun 'rofi -combi-modi window,drun,ssh -show combi -show-icons '
 
 set $browser firefox
 set $explorer thunar
@@ -120,7 +120,7 @@ for_window [class="Dialog"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [window_role="About"] floating enable
-for_window [title="wdisplays"] floating enable
+for_window [title="wdisplays"] floating enable, blur enable
 for_window [title="^Zoom"] floating enable
 for_window [title="^Réunion Zoom"] floating enable
 for_window [title=zoom] floating enable
@@ -141,6 +141,35 @@ for_window [title=".*wofi.*"] floating enable
 for_window [title="Dolphin"] floating enable
 for_window [title="Thunar"] floating enable
 for_window [title="ImageMagick"] floating enable
+
+for_window [title="Firefox"] move container to workspace number 2
+
+for_window [title="Ferdium"] move container to workspace number 4
+for_window [title="Signal"] move container to workspace number 4
+for_window [title="Discord"] move container to workspace number 4
+
+for_window [title="Thunderbird"] move container to workspace number 5
+
+for_window [title="Battle.net"] move container to workspace number 9
+for_window [title="Steam"] move container to workspace number 9
+
+for_window [title="World of Warcraft"] move container to workspace number 10
+
+# blur on
+# shadow on
+# blur_xray enable
+# corner_radius 10
+
+workspace 1 output DP-2
+workspace 2 output HDMI-A-2 
+workspace 3 output HDMI-A-2  
+workspace 4 output HDMI-A-1 
+workspace 5 output HDMI-A-1 
+# workspace 6 output 
+# workspace 7 output 
+# workspace 8 output 
+workspace 9 output HDMI-A-1
+workspace 10 output DP-2
 
 ### Key bindings
 #
@@ -212,38 +241,17 @@ for_window [title="ImageMagick"] floating enable
     bindsym $mod+Alt+$left move workspace to output left
     bindsym $mod+Alt+Left move workspace to output left
 
-    bindsym --no-repeat $mod+1 workspace number 1; exec "echo 1 > /tmp/sovpipe"
-    bindsym --no-repeat $mod+2 workspace number 2; exec "echo 1 > /tmp/sovpipe"
-    bindsym --no-repeat $mod+3 workspace number 3; exec "echo 1 > /tmp/sovpipe"
-    bindsym --no-repeat $mod+4 workspace number 4; exec "echo 1 > /tmp/sovpipe"
-    bindsym --no-repeat $mod+5 workspace number 5; exec "echo 1 > /tmp/sovpipe"
-    bindsym --no-repeat $mod+6 workspace number 6; exec "echo 1 > /tmp/sovpipe"
-    bindsym --no-repeat $mod+7 workspace number 7; exec "echo 1 > /tmp/sovpipe"
-    bindsym --no-repeat $mod+8 workspace number 8; exec "echo 1 > /tmp/sovpipe"
-    bindsym --no-repeat $mod+9 workspace number 9; exec "echo 1 > /tmp/sovpipe"
-    bindsym --no-repeat $mod+0 workspace number 10; exec "echo 1 > /tmp/sovpipe"
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
 
-    bindsym --release $mod+1 exec "echo 0 > /tmp/sovpipe"
-    bindsym --release $mod+2 exec "echo 0 > /tmp/sovpipe"
-    bindsym --release $mod+3 exec "echo 0 > /tmp/sovpipe"
-    bindsym --release $mod+4 exec "echo 0 > /tmp/sovpipe"
-    bindsym --release $mod+5 exec "echo 0 > /tmp/sovpipe"
-    bindsym --release $mod+6 exec "echo 0 > /tmp/sovpipe"
-    bindsym --release $mod+7 exec "echo 0 > /tmp/sovpipe"
-    bindsym --release $mod+8 exec "echo 0 > /tmp/sovpipe"
-    bindsym --release $mod+9 exec "echo 0 > /tmp/sovpipe"
-    bindsym --release $mod+0 exec "echo 0 > /tmp/sovpipe"
-
-    # bindsym $mod+1 workspace number 1
-    # bindsym $mod+2 workspace number 2
-    # bindsym $mod+3 workspace number 3
-    # bindsym $mod+4 workspace number 4
-    # bindsym $mod+5 workspace number 5
-    # bindsym $mod+6 workspace number 6
-    # bindsym $mod+7 workspace number 7
-    # bindsym $mod+8 workspace number 8
-    # bindsym $mod+9 workspace number 9
-    # bindsym $mod+0 workspace number 10
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -257,7 +265,6 @@ for_window [title="ImageMagick"] floating enable
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
-
 #
 # Layout stuff:
 #
@@ -344,7 +351,7 @@ bindsym XF86AudioMute exec  pamixer -t && pamixer --get-volume > $WOBSOCK
 bindsym XF86MonBrightnessUp exec [raise_and_get_brigtness_command] > $WOBSOCK
 bindsym XF86MonBrightnessDown exec [lower_and_get_brightness_command] > $WOBSOCK
 
-bindsym Print exec flameshot gui
+bindsym $mod+Shift+s exec flameshot gui
 
 bindsym $mod+Ctrl+v exec copyq show
 bar swaybar_command waybar
