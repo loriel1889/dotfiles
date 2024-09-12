@@ -1,7 +1,7 @@
 [user]
 	email = anthony@helladan.io
 	name = loriel
-	signingkey = /home/loriel/.ssh/id_rsa.pub
+	signingkey = /home/loriel/.ssh/id_ed25519.pub
 [gpg]
 	format = ssh
 [commit]

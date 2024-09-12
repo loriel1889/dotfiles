@@ -43,7 +43,7 @@ gaps inner 10
 default_border pixel 3 
 
 exec nm-applet --indicator
-exec nextcloud
+exec nextcloud --background
 exec keepassxc -platform xcb
 exec syncthing-gtk -m
 
@@ -132,7 +132,7 @@ for_window [title="Paramétrage rapide  — Configuration du système"] floating
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="blueman-manager"] floating enable
 for_window [app_id="com.nextcloud.desktopclient.nextcloud"] floating enable
-for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable 
 for_window [app_id="org.keepassxc.KeePassXC"] floating enable
 for_window [app_id="thunderbird"] floating enable
 for_window [title=".*Mozilla Thunderbird.*"] floating disable 
@@ -141,17 +141,21 @@ for_window [title=".*wofi.*"] floating enable
 for_window [title="Dolphin"] floating enable
 for_window [title="Thunar"] floating enable
 for_window [title="ImageMagick"] floating enable
+for_window [app_id="hyprland-share-picker"] floating enable
 
 for_window [title="Firefox"] move container to workspace number 2
 
-for_window [title="Ferdium"] move container to workspace number 4
-for_window [title="Signal"] move container to workspace number 4
-for_window [title="Discord"] move container to workspace number 4
+for_window [instance="ferdium"] move container to workspace number 4
+for_window [instance="signal"] move container to workspace number 4
+for_window [instance="discord"] move container to workspace number 4
 
 for_window [title="Thunderbird"] move container to workspace number 5
+for_window [instance="spotify"] move container to workspace number 5
 
 for_window [title="Battle.net"] move container to workspace number 9
 for_window [title="Steam"] move container to workspace number 9
+for_window [instance="steam_app_default"] move container to workspace number 9
+
 
 for_window [title="World of Warcraft"] move container to workspace number 10
 
@@ -381,6 +385,10 @@ exec wl-paste -p -t text --watch clipman store -P
 
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
 exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
+
+exec kdeconnectd
+exec kdeconnect-indicator
+exec /usr/lib/polkit-kde-authentication-agent-1
 
 include /etc/sway/config.d/*
 

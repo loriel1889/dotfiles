@@ -249,10 +249,14 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.bin"
 export PATH="$PATH:/home/loriel/.local/bin"
 
-fpath+=${ZDOTDIR:-~}/.zsh_functions
-alias wezterm='flatpak run org.wezfurlong.wezterm'
+alias s="kitten ssh"
 
-eval "$(atuin init zsh)"
+fpath+=${ZDOTDIR:-~}/.zsh_functions
+alias wezterm='flatpk run org.wezfurlong.wezterm'
+
+alias s="kitten ssh"
+
+eval "$(atuin init zsh --disable-up-arrow)"
 
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 
