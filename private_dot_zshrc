@@ -91,7 +91,6 @@ plugins=(
     asdf
     ruby
     rvm
-    rails
     rake
     gem
     ssh-agent
