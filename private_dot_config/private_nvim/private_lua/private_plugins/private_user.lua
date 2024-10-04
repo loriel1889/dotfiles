@@ -4,6 +4,10 @@
 ---@type LazySpec
 return {
 
+  -- == Examples of Adding Plugins ==
+
+  -- == Examples of Overriding Plugins ==
+
   -- customize alpha options
   {
     "goolord/alpha-nvim",
@@ -91,32 +95,25 @@ return {
     servers = {
       emmet_language_server = {},
     },
-
-    {
-      "fladson/vim-kitty", lazy=false
-    },
-    {
-      "nvim-neo-tree/neo-tree.nvim",
-      opts = {
-        dir = '.',
-        filesystem = {
-          filtered_items = {
-            visible = true,
-          }
-        }
-      }
-    },
-    {
-    'mikesmithgh/kitty-scrollback.nvim',
-    enabled = true,
-    lazy = true,
-    cmd = { 'KittyScrollbackGenerateKittens', 'KittyScrollbackCheckHealth' },
-    event = { 'User KittyScrollbackLaunch' },
-    -- version = '*', -- latest stable version, may have breaking changes if major version changed
-    -- version = '^5.0.0', -- pin major version, include fixes and features that do not have breaking changes
-    config = function()
-      require('kitty-scrollback').setup()
-    end,
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {
+    scope ={
+      enabled = false
+      },
   }
   },
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({
+        })
+    end
+  }
 }
