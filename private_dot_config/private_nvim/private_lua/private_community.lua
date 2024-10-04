@@ -38,6 +38,9 @@ return {
 
   { import = "astrocommunity.icon.mini-icons" },
 
+  -- { import = "astrocommunity.indent.indent-blankline-nvim" },
+  -- { import = "astrocommunity.indent.indent-rainbowline" },
+
   { import = "astrocommunity.lsp.lspsaga-nvim" },
 
   { import = "astrocommunity.markdown-and-latex.glow-nvim" },

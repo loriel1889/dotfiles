@@ -96,4 +96,24 @@ return {
       emmet_language_server = {},
     },
   },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {
+    scope ={
+      enabled = false
+      },
+  }
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({
+        })
+    end
+  }
 }
