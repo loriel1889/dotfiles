@@ -310,3 +310,7 @@ label:focus {
 #bluetooth {
   background-color: #64727d;
 }
+
+#custom-notification {
+  font-family: "NotoSansMono Nerd Font";
+}
