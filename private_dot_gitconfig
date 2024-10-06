@@ -1,7 +1,6 @@
 [user]
 	email = anthony@helladan.io
 	name = loriel
-	signingkey = /home/loriel/.ssh/id_ed25519.pub
 [gpg]
 	format = ssh
 [commit]
@@ -18,3 +17,5 @@
     cmd = kitten diff $LOCAL $REMOTE
 [difftool "kitty.gui"]
     cmd = kitten diff $LOCAL $REMOTE
+[gpg "ssh"]
+	defaultKeyCommand = ssh-add -L

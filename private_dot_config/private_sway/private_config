@@ -358,8 +358,9 @@ bindsym $mod+r mode "resize"
 # bindsym XF86AudioMute exec volumectl toggle-mute
 
 bindsym Shift+XF86AudioMute exec volumectl -m toggle-mute
-# bindsym --no-repeat Control_L exec volumectl -m toggle-mute
-# bindsym --no-repeat --release Control_L exec volumectl -m toggle-mute
+bindsym XF86AudioMicMute exec volumectl -m toggle-mute
+# bindsym --no-repeat Control_L exec amixer -D pipewire set Capture 1+ toggle
+# bindsym --no-repeat --release Control_L exec amixer -D pipewire set Capture 1+ toggle
 bindsym Shift+XF86AudioRaiseVolume exec volumectl -m up
 bindsym Shift+XF86AudioLowerVolume exec volumectl -m down
 
@@ -381,7 +382,6 @@ bar swaybar_command waybar
 exec systemctl --user start dunst.service
 exec dunst &
 exec swaync
-exec export SSH_AUTH_SOCK
 exec dbus-update-activation-environment --all
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
@@ -397,6 +397,9 @@ exec copyq --start-server
 exec clipman restore
 exec wl-paste -t text --watch clipman store
 exec wl-paste -p -t text --watch clipman store -P 
+
+set $SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
+exec export $SSH_AUTH_SOCK
 
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
 exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
