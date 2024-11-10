@@ -5,8 +5,7 @@
 }
 
 window#waybar {
-  background-color: transparent /* rgba(43, 48, 59, 0.5)*/;
-  /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
+  background-color: transparent;
   color: #ffffff;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -15,15 +14,6 @@ window#waybar {
 window#waybar.hidden {
   opacity: 0.2;
 }
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
 
 window#waybar.termite {
   background-color: #3f3f3f;
@@ -35,30 +25,22 @@ window#waybar.chromium {
 }
 
 button {
-  /* Use box-shadow instead of border so the text isn't offset */
-  box-shadow: inset 0 -3px transparent;
-  /* Avoid rounded borders under each button name */
   border: none;
-  border-radius: 20px;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
   background: inherit;
-  /* box-shadow: inset 0 -3px #ffffff; */
+  box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button {
+  border-radius: 0;
   margin-right: 5px;
   min-width: 25px;
   padding: 0 5px;
   background-color: rgba(0, 0, 0, 0.2);
   color: #ffffff;
-}
-
-#workspaces button:hover {
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button.focused {
@@ -71,7 +53,6 @@ button:hover {
 
 #mode {
   background-color: #64727d;
-  box-shadow: inset 0 -3px #ffffff;
 }
 
 #clock,
@@ -89,13 +70,12 @@ button:hover {
 #mode,
 #idle_inhibitor,
 #scratchpad,
-#bluetooth,
+#bluetoot,
 #keyboard-state,
 #language,
 #workspaces,
 #mpd {
   min-width: 10px;
-  border-radius: 20px;
   padding: 0 10px;
   color: #ffffff;
 }
