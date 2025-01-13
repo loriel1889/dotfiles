@@ -43,9 +43,6 @@ return {
 
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
 
-  { import = "astrocommunity.media.image-nvim" },
-  { import = "astrocommunity.media.pets-nvim" },
-
   { import = "astrocommunity.motion.nvim-surround" },
 
   { import = "astrocommunity.pack.bash" },
