@@ -40,26 +40,25 @@ return {
 
   { import = "astrocommunity.lsp.inc-rename-nvim" },
   { import = "astrocommunity.lsp.lspsaga-nvim" },
+  { import = "astrocommunity.lsp.lsp-signature-nvim" },
 
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
 
-<<<<<<< Updated upstream
-=======
   -- { import = "astrocommunity.media.image-nvim" },
   { import = "astrocommunity.media.pets-nvim" },
 
->>>>>>> Stashed changes
   { import = "astrocommunity.motion.nvim-surround" },
 
-  -- { import = "astrocommunity.pack.bash" },
-  -- { import = "astrocommunity.pack.chezmoi" },
-  -- { import = "astrocommunity.pack.docker" },
+  { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.chezmoi" },
+  { import = "astrocommunity.pack.docker" },
   -- { import = "astrocommunity.pack.html-css" },
   -- { import = "astrocommunity.pack.json" },
   -- { import = "astrocommunity.pack.lua" },
   -- { import = "astrocommunity.pack.markdown" },
   -- { import = "astrocommunity.pack.php" },
-  -- { import = "astrocommunity.pack.yaml" },
+  { import = "astrocommunity.pack.yaml" },
+  { import = "astrocommunity.pack.typescript-all-in-one" },
 
   { import = "astrocommunity.programming-language-support.nvim-jqx" },
 

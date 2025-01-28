@@ -21,6 +21,8 @@
       nil
       nixd
 
+      deno
+
       nixpkgs-fmt
       stylua
 

@@ -43,7 +43,7 @@ return {
     servers = {
       "nil_ls",
       "cssls",
-      "html"
+      "html",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields

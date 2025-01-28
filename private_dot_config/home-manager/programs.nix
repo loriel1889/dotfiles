@@ -29,6 +29,6 @@
     nodePackages.vscode-json-languageserver
     nodePackages.vscode-langservers-extracted
     nodePackages.prettier
-
+    mdp
   ];
 }
