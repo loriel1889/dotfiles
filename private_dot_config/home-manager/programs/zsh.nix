@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -7,7 +7,11 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    initExtra = "source $HOME/wsl2-ssh-agent-proxy/ubuntu.wsl2-ssh-agent-proxy.sh";
+    initExtra = "\
+      source $HOME/wsl2-ssh-agent-proxy/ubuntu.wsl2-ssh-agent-proxy.sh 
+      eval \"$(atuin init zsh)\"
+      export LD_LIBRARY_PATH=${pkgs.wayland}/lib:$LD_LIBRARY_PATH
+      ";
 
     shellAliases = {
       dcd = "docker compose down";
@@ -30,6 +34,15 @@
       cat = "bat --paging=never";
 
       vim = "nvim";
+
+      komorebic = "komorebic.exe";
+      komorebi-start = "komorebic start --whkd";
+      komorebi-stop = "komorebic stop --whkd";
+      komorebi-reload = "komorebi-stop && komorebi-start";
+      komorebi-log = "komorebic log";
+
+      yasbc = "yasbc.exe";
+      yasb-log = "yasbc log";
     };
 
     oh-my-zsh = {
@@ -39,6 +52,7 @@
         "nvm"
         "sudo"
         "docker"
+        "z"
       ];
 
       # theme = "robbyrussell";

@@ -10,7 +10,6 @@
   programs = {
     btop.enable = true;
     eza.enable = true;
-    kitty.enable = true;
     bat.enable = true;
     bottom.enable = true;
     ripgrep.enable = true;
@@ -18,6 +17,7 @@
   };
 
   home.packages = with pkgs; [
+    glfw
     volta
     cargo
     tailspin
@@ -30,5 +30,9 @@
     nodePackages.vscode-langservers-extracted
     nodePackages.prettier
     mdp
+    zellij
+    atuin
+    android-tools
+    android-udev-rules
   ];
 }
