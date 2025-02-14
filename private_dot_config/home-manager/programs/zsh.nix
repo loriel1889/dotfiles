@@ -14,6 +14,7 @@
       ";
 
     shellAliases = {
+      docker = "sudo docker";
       dcd = "docker compose down";
       dcu = "docker compose up";
       dcud = "dcu -d";
