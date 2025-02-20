@@ -55,8 +55,6 @@
         "docker"
         "z"
       ];
-
-      # theme = "robbyrussell";
     };
 
   };

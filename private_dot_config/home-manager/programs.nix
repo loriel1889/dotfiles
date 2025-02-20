@@ -34,5 +34,6 @@
     atuin
     android-tools
     android-udev-rules
+    tailspin
   ];
 }
