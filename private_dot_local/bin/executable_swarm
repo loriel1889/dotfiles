@@ -1,0 +1,120 @@
+#!/usr/bin/env bash
+
+USAGE_EXIT_CODE=1
+STACK_DOESNT_EXISTS_EXIT_CODE=2
+
+COMPOSE_FILE=docker-compose.yml
+STACK_NAME=${PWD##*/}
+
+usage(){
+cat << EOF
+Usage: ${0##*/} [-h] [] ...
+  Swarm script helper
+    --help, -h            Display this message
+    --compose-file, -c    Compose file
+
+  Stacks
+    --stack-name, -n      Stack name
+    --rm, -r              Remove stack
+    --deploy, -d          Deploy stack
+    --restart, -R         Restart stack. Same as -rd        
+    --list-stacks, -s     List stacks
+
+  Services
+    --service-name, -N    Service name
+    --list-services, -S   List stacks
+    --log, -l             Show service logs
+EOF
+}
+
+dst(){
+  docker stack $@
+}
+
+dse(){
+  docker service $@
+}
+
+check_stack(){
+  dst ls --format "{{.Name}}" | grep -qw $STACK_NAME
+  if [ $? -eq 0 ]; then
+    return
+  fi
+
+  echo "Stack \`$STACK_NAME\` doesn't exists"
+  exit $STACK_DOESNT_EXISTS_EXIT_CODE
+}
+
+rm(){
+  echo "Removing stack $STACK_NAME"
+  check_stack
+  dst rm $STACK_NAME
+}
+
+deploy(){
+  echo "deploy stack $STACK_NAME"
+  dst deploy -c $COMPOSE_FILE $STACK_NAME
+}
+
+ARGS=$(getopt \
+  -o 'hc:\
+      n:rdRs\
+      N:Sl:' \
+  --long 'help,compose-file:\
+          stack-name:,rm,deploy,restart,list-stacks,\
+          service-name:,list-services,log:' \
+  -n 'swarm' \
+  -- "$@")
+
+if [ $? -ne 0 ]; then
+  usage >&2
+  exit $BAD_PARAMATERS_EXIT_CODE
+fi
+
+eval set -- "$ARGS"
+unset ARGS
+
+while true; do
+  case $1 in
+    '--help'|'-h')
+      usage
+      exit 0
+      ;;
+    '--stack-name'|'-n')
+      STACK_NAME=$2
+      shift 2
+      continue
+      ;;
+    '--rm'|'-r')
+      rm
+      shift 1
+      continue
+      ;;
+    '--deploy'|'-d')
+      deploy
+      shift 1
+      continue
+      ;;
+    '--restart'|'-R')
+      rm && deploy
+      shift 1
+      continue
+      ;;
+    '--list-stacks'|'-l')
+      dst ls
+      exit 0
+      ;;
+    '--list-services'|'-L')
+      dse ls
+      exit 0
+      ;;
+    '--')
+      shift
+      break
+      ;;
+    *)
+      usage >&2
+      exit $BAD_PARAMATERS_EXIT_CODE
+      ;;
+  esac
+done
