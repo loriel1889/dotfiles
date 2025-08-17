@@ -7,10 +7,10 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    initExtra = "\
-      source $HOME/wsl2-ssh-agent-proxy/ubuntu.wsl2-ssh-agent-proxy.sh 
+    initContent = "\
       eval \"$(atuin init zsh)\"
       export LD_LIBRARY_PATH=${pkgs.wayland}/lib:$LD_LIBRARY_PATH
+      if (( $+commands[wsl2-ssh-agent] )); then eval $(wsl2-ssh-agent); fi
       ";
 
     shellAliases = {

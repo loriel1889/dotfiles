@@ -10,8 +10,12 @@
 
     viAlias = true;
     vimAlias = true;
-
-    extraPackages = with pkgs; [
+    
+    plugins = with pkgs.vimPlugins; [
+      lazy-nvim
+    ];
+    
+   extraPackages = with pkgs; [
       fzf
       ripgrep
       gcc
@@ -21,7 +25,7 @@
       nil
       nixd
 
-      deno
+      # deno
 
       nixpkgs-fmt
       stylua
@@ -35,7 +39,7 @@
 
       php
       php.packages.composer
-      php.packages.php-cs-fixer
+      #php.packages.php-cs-fixer
     ];
   };
 }
