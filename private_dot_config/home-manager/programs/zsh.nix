@@ -42,6 +42,9 @@
       komorebi-reload = "komorebi-stop && komorebi-start";
       komorebi-log = "komorebic log";
 
+      rcp = "rsync -avP";
+      rcpz = "rcp -z --zc=lz4";
+
       yasbc = "yasbc.exe";
       yasb-log = "yasbc log";
     };
