@@ -3,7 +3,7 @@
 USAGE_EXIT_CODE=1
 STACK_DOESNT_EXISTS_EXIT_CODE=2
 
-COMPOSE_FILE=docker-compose.yml
+COMPOSE_FILE=compose.yml
 STACK_NAME=${PWD##*/}
 
 usage(){
