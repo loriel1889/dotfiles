@@ -4,18 +4,12 @@
     ./programs.nix
   ];
 
-  home = {
-    username = builtins.getEnv("USER");
-    homeDirectory = builtins.getEnv("HOME");
+  home.username = "loriel";
+  home.homeDirectory = "/home/loriel";
 
-    sessionPath = [
-      "$HOME/.local/bin"
-    ];
+  home.preferXdgDirectories = true;
 
-    preferXdgDirectories = true;
-
-    stateVersion = "24.11"; # Please read the comment before changing.
-  };
+  home.stateVersion = "24.11"; # Please read the comment before changing.
 
   targets.genericLinux.enable = true;
 
