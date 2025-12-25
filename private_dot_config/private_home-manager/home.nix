@@ -5,8 +5,8 @@
   ];
 
   home = {
-    username = "loriel";
-    homeDirectory = "/home/loriel";
+    username = builtins.getEnv "USER";
+    homeDirectory = builtins.getEnv "HOME";
 
     sessionPath = [
       "$HOME/.local/bin"
