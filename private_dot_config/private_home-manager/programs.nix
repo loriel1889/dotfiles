@@ -25,6 +25,7 @@
     lua5_1
     luarocks
     gdu
+    go
     nodejs
     nodePackages.vscode-json-languageserver
     nodePackages.vscode-langservers-extracted
