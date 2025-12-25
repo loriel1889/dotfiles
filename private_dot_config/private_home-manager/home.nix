@@ -4,12 +4,17 @@
     ./programs.nix
   ];
 
-  home.username = "loriel";
-  home.homeDirectory = "/home/loriel";
+  home = {
+    username = "loriel";
+    homeDirectory = "/home/loriel";
 
-  home.preferXdgDirectories = true;
+    sessionPath = [
+      "$HOME/.local/bin"
+    ];
 
-  home.stateVersion = "24.11"; # Please read the comment before changing.
+    preferXdgDirectories = true;
+    home.stateVersion = "24.11"; # Please read the comment before changing.
+  };
 
   targets.genericLinux.enable = true;
 
