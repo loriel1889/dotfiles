@@ -10,10 +10,11 @@
 
     sessionPath = [
       "$HOME/.local/bin"
+      "$HOME/go/bin"
     ];
 
     preferXdgDirectories = true;
-    home.stateVersion = "24.11"; # Please read the comment before changing.
+    stateVersion = "24.11"; # Please read the comment before changing.
   };
 
   targets.genericLinux.enable = true;
